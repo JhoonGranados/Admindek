@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Admindek</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Public Sans', sans-serif;
+            background-color: #fff;
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Left Side: Brand/Welcome */
+        .login-sidebar {
+            flex: 1;
+            background: linear-gradient(135deg, #0d6efd 0%, #0043a8 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+            background-size: 100%;
+            z-index: -1;
+        }
+
+        .brand-logo-large {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 80%;
+            line-height: 1.6;
+        }
+
+        /* Right Side: Form */
+        .login-form-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            position: relative;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 450px;
+            padding: 2rem;
+        }
+
+        .form-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            display: block;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            color: #6c757d;
+            margin-bottom: 2.5rem;
+            font-size: 0.9rem;
+        }
+
+        .custom-input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .custom-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            background: transparent;
+            transition: border-color 0.3s;
+            border-radius: 0;
+        }
+
+        .custom-input:focus {
+            outline: none;
+            border-bottom-color: #0d6efd;
+            box-shadow: none;
+        }
+
+        .btn-black {
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-black:hover {
+            background-color: #000;
+            color: white;
+        }
+
+        .btn-google {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            color: #1a1a1a;
+            padding: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-google:hover {
+            background-color: #f8f9fa;
+        }
+
+        .login-copyright {
+            position: absolute;
+            bottom: 2rem;
+            left: 4rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        input::placeholder {
+            color: #adb5bd;
+        }
+
+        @media (max-width: 991.98px) {
+            .login-sidebar {
+                display: none;
+            }
+
+            .login-form-section {
+                padding: 1rem;
+            }
+
+            .login-copyright {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <!-- Left Side -->
+        <div class="login-sidebar">
+            <div class="mb-4">
+                <i class="bi bi-asterisk brand-logo-large"></i>
+            </div>
+            <h1 class="welcome-title">Join<br>Admindek! 🚀</h1>
+            <p class="welcome-text">
+                Start your journey with us. Create an account to access powerful tools and automate your workflow today!
+            </p>
+            <div class="login-copyright">
+                &copy; 2025 Admindek. All rights reserved.
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="login-form-section">
+            <div class="login-card">
+                <a href="../index.html" class="form-brand">Admindek</a>
+
+                <h2 class="form-title">Create Account</h2>
+                <p class="form-subtitle">
+                    Already have an account? <a href="login.html" class="text-decoration-none text-dark fw-bold"
+                        style="text-decoration: underline !important;">Login now</a>
+                </p>
+
+                <form action="login.html">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="custom-input-group">
+                                <input type="text" class="custom-input" id="fname" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="custom-input-group">
+                                <input type="text" class="custom-input" id="lname" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="custom-input-group">
+                        <input type="email" class="custom-input" id="email" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="custom-input-group">
+                        <input type="password" class="custom-input" id="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="terms" required>
+                            <label class="form-check-label text-muted small" for="terms">
+                                I agree to the <a href="#" class="text-decoration-none text-dark fw-bold"
+                                    style="text-decoration: underline;">Terms and Conditions</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-3">
+                        <button type="submit" class="btn btn-black">Sign Up</button>
+                        <button type="button" class="btn btn-google">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"
+                                width="18" height="18">
+                            Sign up with Google
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

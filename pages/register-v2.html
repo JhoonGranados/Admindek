@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register V2 - Admindek</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .login-wrapper {
+            display: flex;
+            width: 900px;
+            max-width: 95%;
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            min-height: 550px;
+        }
+
+        .left-panel {
+            width: 45%;
+            background: #7597eb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            border-top-right-radius: 150px;
+            border-bottom-right-radius: 150px;
+            margin-right: -50px;
+            z-index: 2;
+        }
+
+        .right-panel {
+            width: 55%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 40px 40px 80px;
+        }
+
+        h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.3px;
+            margin: 20px 0;
+        }
+
+        .inputs-container {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group-custom {
+            position: relative;
+        }
+
+        .input-group-custom input {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            padding-right: 40px;
+            width: 100%;
+            outline: none;
+            border-radius: 8px;
+        }
+
+        .input-group-custom i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .btn-custom {
+            background-color: #7597eb;
+            color: #fff;
+            font-size: 12px;
+            padding: 12px 45px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #5c7cce;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 10px 40px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 12px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .social-container {
+            margin: 20px 0;
+        }
+
+        .social-container a {
+            border: 1px solid #ddd;
+            border-radius: 20%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            height: 40px;
+            width: 40px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-container a:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            .login-wrapper {
+                flex-direction: column;
+                height: auto;
+                width: 90%;
+            }
+
+            .left-panel {
+                width: 100%;
+                border-radius: 0 0 50px 50px;
+                padding: 30px;
+                margin-right: 0;
+                order: 1;
+            }
+
+            .right-panel {
+                width: 100%;
+                padding: 30px;
+                order: 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <!-- Left Panel (Blue) -->
+        <div class="left-panel">
+            <h1>Welcome Back!</h1>
+            <p>Already have an account?</p>
+            <a href="login-v2.html" class="btn btn-outline text-decoration-none d-inline-block text-center pt-2">Sign
+                In</a>
+        </div>
+
+        <!-- Right Panel (White) -->
+        <div class="right-panel">
+            <h1 class="text-dark">Create Account</h1>
+
+            <form action="login.html" class="inputs-container">
+                <div class="input-group-custom">
+                    <input type="text" placeholder="Name" required>
+                    <i class="bi bi-person"></i>
+                </div>
+                <div class="input-group-custom">
+                    <input type="email" placeholder="Email" required>
+                    <i class="bi bi-envelope"></i>
+                </div>
+                <div class="input-group-custom">
+                    <input type="password" placeholder="Password" required>
+                    <i class="bi bi-lock"></i>
+                </div>
+
+                <button type="submit" class="btn-custom">Sign Up</button>
+            </form>
+
+            <p class="text-muted mt-4 mb-2 small">or Sign up with</p>
+
+            <div class="social-container">
+                <a href="#" class="social"><i class="bi bi-google"></i></a>
+                <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social"><i class="bi bi-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

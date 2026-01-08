@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login V2 - Admindek</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container-login {
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+            width: 768px;
+            max-width: 100%;
+            min-height: 480px;
+            display: flex;
+        }
+
+        .sign-in-container {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            z-index: 1;
+        }
+
+        .toggle-container {
+            flex: 1;
+            background: linear-gradient(to right, #5c6bc0, #512da8);
+            background: #7386D5;
+            /* Approximated from image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+            border-top-right-radius: 100px;
+            /* Curve effect */
+            border-bottom-right-radius: 100px;
+            /* To make it look like the image where blue is on left but curved out */
+            /* Actually the image has the blue on the left. Let's adjust structure. */
+        }
+
+        /* Re-structuring for the specific image layout: Left Blue (Curved), Right White */
+        .login-wrapper {
+            display: flex;
+            width: 900px;
+            max-width: 95%;
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            min-height: 550px;
+        }
+
+        .left-panel {
+            width: 45%;
+            background: #7597eb;
+            /* Soft blue */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            /* distinct curve shape */
+            border-top-right-radius: 150px;
+            border-bottom-right-radius: 150px;
+            margin-right: -50px;
+            /* Overlap slightly or just let the shape define boundary */
+            z-index: 2;
+        }
+
+        .right-panel {
+            width: 55%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 40px 40px 80px;
+            /* Extra padding left because of curvature overlap if needed, but flex handles it */
+        }
+
+        h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.3px;
+            margin: 20px 0;
+        }
+
+        .inputs-container {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group-custom {
+            position: relative;
+        }
+
+        .input-group-custom input {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            padding-right: 40px;
+            /* Space for icon */
+            width: 100%;
+            outline: none;
+            border-radius: 8px;
+        }
+
+        .input-group-custom i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .btn-custom {
+            background-color: #7597eb;
+            color: #fff;
+            font-size: 12px;
+            padding: 12px 45px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #5c7cce;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 10px 40px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 12px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .social-container {
+            margin: 20px 0;
+        }
+
+        .social-container a {
+            border: 1px solid #ddd;
+            border-radius: 20%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            height: 40px;
+            width: 40px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-container a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .forgot-pass {
+            font-size: 12px;
+            color: #333;
+            text-decoration: none;
+            margin: 10px 0;
+            display: block;
+            text-align: right;
+            width: 100%;
+            max-width: 350px;
+            font-weight: 600;
+            color: #5c6bc0;
+        }
+
+        @media (max-width: 768px) {
+            .login-wrapper {
+                flex-direction: column;
+                height: auto;
+                width: 90%;
+            }
+
+            .left-panel {
+                width: 100%;
+                border-radius: 0 0 50px 50px;
+                padding: 30px;
+                margin-right: 0;
+                order: 1;
+                /* Move to top or bottom? Image has it left. On mobile usually top.*/
+            }
+
+            .right-panel {
+                width: 100%;
+                padding: 30px;
+                order: 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <!-- Left Panel (Blue) -->
+        <div class="left-panel">
+            <h1>Hello, Welcome!</h1>
+            <p>Don't have an Account?</p>
+            <a href="register-v2.html" class="btn btn-outline text-decoration-none d-inline-block text-center pt-2">Sign
+                Up</a>
+        </div>
+
+        <!-- Right Panel (White) -->
+        <div class="right-panel">
+            <h1 class="text-dark">Sign In</h1>
+
+            <form action="../index.html" class="inputs-container">
+                <div class="input-group-custom">
+                    <input type="email" placeholder="Username" required>
+                    <i class="bi bi-person"></i>
+                </div>
+                <div class="input-group-custom">
+                    <input type="password" placeholder="Password" required>
+                    <i class="bi bi-lock"></i>
+                </div>
+
+                <a href="#" class="forgot-pass">Forgot your password?</a>
+
+                <button type="submit" class="btn-custom">Sign In</button>
+            </form>
+
+            <p class="text-muted mt-4 mb-2 small">or Sign In with Social Platforms</p>
+
+            <div class="social-container">
+                <a href="#" class="social"><i class="bi bi-google"></i></a>
+                <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social"><i class="bi bi-github"></i></a>
+                <a href="#" class="social"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
